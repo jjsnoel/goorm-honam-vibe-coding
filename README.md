@@ -36,14 +36,7 @@ Open http://localhost:5151
 
 Deploy the contents of `day1-intro-website/book-landing-page/` to your repository root.
 
-## Path rename note
+## Day 1 work (2026-05-26)
 
-Projects were copied from Korean folder names to English for GitHub compatibility:
-
-| Before (Korean) | After (English) |
-|-----------------|-----------------|
-| `구름_호남_바이브코딩` | `goorm-honam-vibe-coding` |
-| `1일차 소개 웹사이트` | `day1-intro-website` |
-| `책소개 웹페이지` | `book-landing-page` |
-
-You may delete the old Korean-named folder on Desktop after closing Cursor/terminals that lock those paths.
+- Instructor intro landing (`day1-intro-website/index.html`)
+- Book landing page (`day1-intro-website/book-landing-page/`)
