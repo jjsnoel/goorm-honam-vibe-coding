@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="바이브코딩 입문자를 위한 과제 완성형 학습서. 30일 동안 AI와 함께 웹앱을 기획하고 완성하는 항해 로드맵." />
+  <title>바이브코딩 항해일지 | AI와 함께한 30일간의 프로젝트</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wave-bg" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#hero" class="logo">바이브코딩 <span>항해일지</span></a>
+      <button class="nav-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="site-nav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="주요 섹션">
+        <ul>
+          <li><a href="#hero">시작</a></li>
+          <li><a href="#audience">독자</a></li>
+          <li><a href="#value">가치</a></li>
+          <li><a href="#voyage">항로</a></li>
+          <li><a href="#cta">구매</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="step-indicator" aria-label="단계 이동">
+    <a href="#hero" title="Step 1">1</a>
+    <a href="#audience" title="Step 2">2</a>
+    <a href="#value" title="Step 3">3</a>
+    <a href="#voyage" title="Step 4">4</a>
+    <a href="#cta" title="Step 5">5</a>
+  </nav>
+
+  <main>
+    <!-- Step 1: Hero -->
+    <section id="hero" class="section hero">
+      <div class="container">
+        <div class="hero-grid reveal">
+          <div class="hero-cover">
+            <img
+              src="./Book-Vibe-Coding-Log-postcover-by-NextPlatform.jpeg"
+              alt="바이브코딩 항해일지 표지 — AI와 함께 완성하는 30일간의 코딩 프로젝트"
+              width="800"
+              height="450"
+            />
+          </div>
+          <div class="hero-content">
+            <span class="hero-badge">깃허브 코드 예제 100% 제공</span>
+            <p class="hero-subtitle">The Vibe Coding Log: A 30-Day Voyage</p>
+            <h1>바이브코딩 항해일지</h1>
+            <p class="hero-tagline">
+              누구나 재미있게 소프트웨어를 기획하고 개발할 수 있도록 돕는
+              <strong>과제 완성형 학습서</strong>
+            </p>
+            <p>
+              『<strong>바이브코딩 항해일지 – AI와 함께한 30일간의 프로젝트</strong>』는
+              바이브코딩을 처음 시작하는 분을 위한 <strong>일일 도전과제 완성형</strong> 입문서예요.
+              하루 하나씩, 작은 웹앱을 만들고 배포해 보며 “나도 소프트웨어를 만들 수 있다”는 성취감을 쌓아 갑니다.
+            </p>
+            <ul class="hero-points">
+              <li><span><strong>30일 · 30개 프로젝트</strong> — 기획부터 배포·상용화까지 한 권으로</span></li>
+              <li><span><strong>AI 항해사</strong> — Cursor, GPT, Claude, Gemini와 협업하는 새로운 코딩 방식</span></li>
+              <li><span><strong>10~20분</strong> 안에 1차 버전 확인 — 빠른 성취감, 낮은 학습 피로</span></li>
+            </ul>
+            <div class="btn-group">
+              <a href="#voyage" class="btn btn-outline">30일 항로 미리보기</a>
+              <a href="https://www.yes24.com/product/goods/186936120" class="btn btn-primary" target="_blank" rel="noopener noreferrer">책 구매하기 (예스24)</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 2: Audience -->
+    <section id="audience" class="section section-alt">
+      <div class="container reveal">
+        <span class="section-label">Step 2</span>
+        <h2>이런 분께 추천해요</h2>
+        <p class="section-desc">
+          코딩이 처음이어도 괜찮아요. 함께 항해할 동료를 찾고 있어요.
+        </p>
+        <p>
+          이 책은 “이미 개발자”가 아니라, <strong>재미있게 소프트웨어를 만들어 보고 싶은 분</strong>을 위해 썼어요.
+          중·고등학생부터 대학 비전공자, 현업 실무자·교사까지 — 각자의 목표에 맞게 같은 30일 항로를 걸을 수 있습니다.
+        </p>
+        <div class="audience-table-wrap">
+          <table class="audience-table">
+            <thead>
+              <tr>
+                <th>독자</th>
+                <th>주요 목적</th>
+                <th>이 책에서 얻는 것</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>중·고등학생</strong></td>
+                <td>첫 코딩 경험, AI 활용 체험</td>
+                <td>“나도 앱을 만들 수 있다”는 성취감</td>
+              </tr>
+              <tr>
+                <td><strong>대학생 / 비전공자</strong></td>
+                <td>프로젝트 포트폴리오</td>
+                <td>Cursor·GitHub 등 실무 도구 익히기</td>
+              </tr>
+              <tr>
+                <td><strong>현업 실무자 / 교사</strong></td>
+                <td>AI 교육·수업 설계</td>
+                <td>30제 로드맵, 강의·수업 커리큘럼 참고</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <blockquote class="quote-block">
+          개발 경험이 거의 없어도, <strong>AI와 협업</strong>하면 문제를 해결하고 웹앱을 직접 완성할 수 있어요.
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- Step 3: Value -->
+    <section id="value" class="section">
+      <div class="container reveal">
+        <span class="section-label">Step 3</span>
+        <h2>왜 ‘항해일지’인가요</h2>
+        <p class="section-desc">
+          바이브와 리듬이 살아 있는, 실습 중심의 바이브코딩 입문서
+        </p>
+        <p>
+          바이브코딩(VibeCoding)은 AI 시대의 새로운 프로그래밍 방식이에요.
+          이 책은 입문자 눈높이에서 <strong>“학습 목표 → 사용 도구 → 핵심 개념 → 프롬프트 예시 → 결과 요약”</strong>까지
+          한 번에 정리해, 막막함 없이 따라 할 수 있게 구성했습니다.
+          <strong>10-10-10, 30제 바이브 &amp; 리듬</strong> 설계로 몰입은 높이고 피로는 낮춰요.
+        </p>
+        <div class="feature-list">
+          <div class="feature-item">
+            <span class="feature-icon" aria-hidden="true">📘</span>
+            <div>
+              <strong>과제 완성형</strong>
+              <span>읽기만 하는 책이 아니라, 매일 하나씩 완성품을 만듭니다</span>
+            </div>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon" aria-hidden="true">🚀</span>
+            <div>
+              <strong>현실적인 프로젝트</strong>
+              <span>AI의 도움으로 끝까지 완성 가능한 30개 예제</span>
+            </div>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon" aria-hidden="true">🛠</span>
+            <div>
+              <strong>실무 도구</strong>
+              <span>Cursor, GitHub, Netlify, Vercel, Firebase 등</span>
+            </div>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon" aria-hidden="true">📊</span>
+            <div>
+              <strong>예제 구성</strong>
+              <span>단일 기능 웹앱 50% · LLM API 앱 20% · 데이터·ML 앱 30%</span>
+            </div>
+          </div>
+        </div>
+        <h3>학습 리듬 (10-10-10)</h3>
+        <div class="rhythm-table-wrap">
+          <table class="rhythm-table">
+            <thead>
+              <tr>
+                <th>구간</th>
+                <th>시간</th>
+                <th>내용</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>10분</td>
+                <td>오늘의 목표와 프롬프트 이해</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>10분</td>
+                <td>AI와 함께 1차 버전 구현</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>10분</td>
+                <td>실행·배포·결과 확인 및 확장 아이디어</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 4: Voyage -->
+    <section id="voyage" class="section section-alt">
+      <div class="container reveal">
+        <span class="section-label">Step 4</span>
+        <h2>30일 항로를 미리 봅니다</h2>
+        <p class="section-desc">
+          5개의 바다를 건너, 기획부터 상용화까지 — 30일 항해 로드맵
+        </p>
+        <p>
+          책은 <strong>5부 30제</strong>로 구성되어 있어요. 앞부록일수록 웹 기초에 집중하고,
+          뒤로 갈수록 AI 자동화와 배포·결제까지 확장됩니다.
+        </p>
+
+        <div class="voyage-grid" style="margin-top: 40px;">
+          <article class="card voyage-card reveal">
+            <p class="voyage-part">1부</p>
+            <h3>첫 항해를 위한 준비 — AI 항해사와의 첫 만남</h3>
+            <div class="voyage-meta">
+              <span>Day 1 ~ 6</span>
+              <span class="difficulty">★☆☆</span>
+              <span class="ai-pct">AI 10%</span>
+            </div>
+            <p>웹앱 구조 이해와 첫 배포 · HTML / CSS / JS, GitHub</p>
+            <div class="voyage-projects">
+              <h4>대표 프로젝트</h4>
+              <ul>
+                <li>나만의 랜딩 페이지 생성기</li>
+                <li>하루 할 일(To-Do) 메모 앱</li>
+                <li>GitHub Pages 자동배포 워크플로</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="card voyage-card reveal">
+            <p class="voyage-part">2부</p>
+            <h3>데이터의 바다로 — API로 연결된 세상과 바다</h3>
+            <div class="voyage-meta">
+              <span>Day 7 ~ 12</span>
+              <span class="difficulty">★★☆</span>
+              <span class="ai-pct">AI 20%</span>
+            </div>
+            <p>데이터 연결과 API 이해 · fetch(), REST API</p>
+            <div class="voyage-projects">
+              <h4>대표 프로젝트</h4>
+              <ul>
+                <li>날씨 알리미 앱</li>
+                <li>뉴스 카드뷰 요약기</li>
+                <li>주식 시세 조회기</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="card voyage-card reveal">
+            <p class="voyage-part">3부</p>
+            <h3>교류의 바람을 타고 — 사용자와 상호작용 항해</h3>
+            <div class="voyage-meta">
+              <span>Day 13 ~ 18</span>
+              <span class="difficulty">★★☆</span>
+              <span class="ai-pct">AI 30%</span>
+            </div>
+            <p>사용자 상호작용 설계 · CRUD, 인증, 시각화</p>
+            <div class="voyage-projects">
+              <h4>대표 프로젝트</h4>
+              <ul>
+                <li>AI 번역기 (Gemini API)</li>
+                <li>로그인·회원가입 기능 (Firebase Auth)</li>
+                <li>데이터 시각화 대시보드</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="card voyage-card reveal">
+            <p class="voyage-part">4부</p>
+            <h3>자동항해 모드 — AI와 함께 완성하는 코딩 루프</h3>
+            <div class="voyage-meta">
+              <span>Day 19 ~ 24</span>
+              <span class="difficulty">★★★</span>
+              <span class="ai-pct">AI 60%</span>
+            </div>
+            <p>AI 자동화와 프롬프트 설계 · GPT · Claude · Gemini</p>
+            <div class="voyage-projects">
+              <h4>대표 프로젝트</h4>
+              <ul>
+                <li>AI 면접 연습 시뮬레이터</li>
+                <li>회의록 요약 &amp; 할 일 생성기</li>
+                <li>AI 블로그 콘텐츠 생성기</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="card voyage-card reveal" style="grid-column: 1 / -1; max-width: 100%;">
+            <p class="voyage-part">5부</p>
+            <h3>마침내, 귀항 — 앱 빌드 및 배포 자동화 시스템 구축</h3>
+            <div class="voyage-meta">
+              <span>Day 25 ~ 30</span>
+              <span class="difficulty">★★★★</span>
+              <span class="ai-pct">AI 70%</span>
+            </div>
+            <p>배포 · 결제 · 상용화 · Stripe, Vercel, GitHub Actions</p>
+            <div class="voyage-projects">
+              <h4>대표 프로젝트</h4>
+              <ul>
+                <li>Stripe 구독 결제 시스템</li>
+                <li>이미지 분석 웹앱 (Gemini Vision)</li>
+                <li>Product Hunt 배포 자동화</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <div class="summary-table-wrap reveal">
+          <table class="summary-table">
+            <caption class="visually-hidden">5부 항해 요약</caption>
+            <thead>
+              <tr>
+                <th>부</th>
+                <th>항해 구간</th>
+                <th>일차</th>
+                <th>난이도</th>
+                <th>AI 비중</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1부</strong></td>
+                <td>첫 항해 준비</td>
+                <td>1~6</td>
+                <td>★☆☆</td>
+                <td>10%</td>
+              </tr>
+              <tr>
+                <td><strong>2부</strong></td>
+                <td>데이터의 바다</td>
+                <td>7~12</td>
+                <td>★★☆</td>
+                <td>20%</td>
+              </tr>
+              <tr>
+                <td><strong>3부</strong></td>
+                <td>교류의 바람</td>
+                <td>13~18</td>
+                <td>★★☆</td>
+                <td>30%</td>
+              </tr>
+              <tr>
+                <td><strong>4부</strong></td>
+                <td>자동항해 모드</td>
+                <td>19~24</td>
+                <td>★★★</td>
+                <td>60%</td>
+              </tr>
+              <tr>
+                <td><strong>5부</strong></td>
+                <td>귀항</td>
+                <td>25~30</td>
+                <td>★★★★</td>
+                <td>70%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 5: CTA -->
+    <section id="cta" class="section cta-section">
+      <div class="container reveal">
+        <span class="section-label">Step 5</span>
+        <h2>오늘부터 항해를 시작해요</h2>
+        <p class="section-desc">
+          표를 펼치고, 첫 번째 프로젝트와 함께 출항할 준비가 되었나요?
+        </p>
+        <p>
+          책 한 권으로 30일간의 항해를 시작해 보세요.
+          구매 후에는 공식 <strong>깃허브 예제 모음</strong>에서 소스코드와 완성 앱 링크를 바로 확인할 수 있어요.
+        </p>
+
+        <div class="book-info card">
+          <dl>
+            <dt>제목</dt>
+            <dd>『바이브코딩 항해일지 – AI와 함께한 30일간의 프로젝트』</dd>
+            <dt>저자</dt>
+            <dd>동준상 (넥스트플랫폼)</dd>
+            <dt>출판사</dt>
+            <dd>에이콘출판</dd>
+            <dt>출간</dt>
+            <dd>2026년 4월</dd>
+          </dl>
+        </div>
+
+        <div class="cta-buttons">
+          <a href="https://www.yes24.com/product/goods/186936120" class="btn btn-gold" target="_blank" rel="noopener noreferrer">예스24에서 구매</a>
+          <a href="https://product.kyobobook.co.kr/detail/S000219726261" class="btn btn-outline" target="_blank" rel="noopener noreferrer">교보문고에서 구매</a>
+          <a href="https://nextplatform.net/book-the-vibe-coding-log-a-30-day-voyage/" class="btn btn-outline" target="_blank" rel="noopener noreferrer">공식 책 소개</a>
+          <a href="https://nextplatform.net/book-the-vibe-coding-log-a-30-day-voyage-github-repos/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">깃허브 예제 모음</a>
+        </div>
+
+        <div class="cta-closing">
+          30일 뒤, 여러분의 포트폴리오에는 <strong>직접 만든 웹앱</strong>이 하나씩 쌓여 있을 거예요.
+          <strong>바이브코딩 항해일지</strong>와 함께, AI 항해사를 모시고 첫 항해를 떠나 봅시다.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>
+        © 2026 <a href="https://nextplatform.net/book-the-vibe-coding-log-a-30-day-voyage/" target="_blank" rel="noopener noreferrer">넥스트플랫폼</a>
+        · 동준상 · 에이콘출판
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

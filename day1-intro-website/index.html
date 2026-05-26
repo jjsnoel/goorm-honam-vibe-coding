@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="동준상 강사의 바이브코딩 입문 강연 소개 — AI와 함께 첫 웹페이지를 완성하는 실습형 수업" />
+  <title>동준상 | 바이브코딩 입문 강사 소개</title>
+  <style>
+    /* ===== CSS Variables ===== */
+    :root {
+      --primary: #2563EB;
+      --primary-dark: #1D4ED8;
+      --secondary: #7C3AED;
+      --background: #F8FAFC;
+      --white: #FFFFFF;
+      --text-main: #0F172A;
+      --text-sub: #475569;
+      --card-border: #E2E8F0;
+      --accent: #22C55E;
+      --shadow: 0 4px 24px rgba(15, 23, 42, 0.08);
+      --shadow-hover: 0 12px 32px rgba(15, 23, 42, 0.12);
+      --radius: 16px;
+      --max-width: 1120px;
+      --section-gap: 72px;
+      --font: system-ui, "Pretendard", "Apple SD Gothic Neo", sans-serif;
+    }
+
+    /* ===== Reset & Base ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--text-main);
+      background: var(--background);
+    }
+    img { max-width: 100%; display: block; }
+    a { color: var(--primary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    ul { list-style: none; }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section {
+      padding: var(--section-gap) 0;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--primary);
+      background: rgba(37, 99, 235, 0.1);
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.3;
+      color: var(--text-main);
+    }
+
+    h2 {
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      margin-bottom: 12px;
+    }
+
+    .section-desc {
+      color: var(--text-sub);
+      font-size: 1.0625rem;
+      max-width: 640px;
+      margin-bottom: 40px;
+    }
+
+    /* ===== Buttons ===== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 24px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 12px;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+      text-decoration: none;
+    }
+    .btn:focus-visible {
+      outline: 3px solid var(--primary);
+      outline-offset: 2px;
+    }
+    .btn:hover { transform: translateY(-2px); text-decoration: none; }
+    .btn-primary {
+      background: var(--primary);
+      color: var(--white);
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+    }
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+    }
+    .btn-outline {
+      background: var(--white);
+      color: var(--primary);
+      border-color: var(--card-border);
+    }
+    .btn-outline:hover {
+      border-color: var(--primary);
+      box-shadow: var(--shadow);
+    }
+    .btn-secondary {
+      background: var(--secondary);
+      color: var(--white);
+    }
+    .btn-secondary:hover {
+      filter: brightness(1.08);
+      box-shadow: 0 8px 20px rgba(124, 58, 237, 0.35);
+    }
+
+    /* ===== Cards ===== */
+    .card {
+      background: var(--white);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .grid-3 {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 768px) {
+      .grid-3 { grid-template-columns: repeat(2, 1fr); }
+      .grid-3.journey-grid,
+      .grid-3.tools-grid,
+      .grid-3.outcome-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (min-width: 1024px) {
+      .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    /* ===== Header ===== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      gap: 16px;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 1.125rem;
+      color: var(--text-main);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .logo span { color: var(--primary); }
+
+    .nav-toggle {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text-main);
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .nav-toggle[aria-expanded="true"] span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .nav-toggle[aria-expanded="true"] span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .site-nav ul {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      position: absolute;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: var(--white);
+      border-bottom: 1px solid var(--card-border);
+      padding: 12px 20px 20px;
+      box-shadow: var(--shadow);
+    }
+    .site-nav.open ul { display: flex; }
+
+    .site-nav a {
+      display: block;
+      padding: 10px 12px;
+      color: var(--text-sub);
+      font-weight: 500;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+    .site-nav a:hover,
+    .site-nav a:focus-visible {
+      color: var(--primary);
+      background: rgba(37, 99, 235, 0.08);
+      text-decoration: none;
+    }
+
+    @media (min-width: 768px) {
+      .nav-toggle { display: none; }
+      .site-nav ul {
+        display: flex;
+        flex-direction: row;
+        position: static;
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        gap: 4px;
+      }
+      .site-nav a { padding: 8px 14px; font-size: 0.9375rem; }
+    }
+
+    /* ===== Hero ===== */
+    #hero {
+      padding-top: 48px;
+      background: linear-gradient(160deg, #EFF6FF 0%, #F8FAFC 45%, #F5F3FF 100%);
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 40px;
+      align-items: center;
+    }
+
+    @media (min-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr 380px; }
+    }
+
+    .hero-badge {
+      display: inline-block;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--secondary);
+      background: rgba(124, 58, 237, 0.12);
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.75rem, 5vw, 2.5rem);
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-lead {
+      font-size: 1.0625rem;
+      color: var(--text-sub);
+      margin-bottom: 28px;
+      max-width: 520px;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .code-snippet {
+      background: #0F172A;
+      color: #E2E8F0;
+      border-radius: 12px;
+      padding: 16px 20px;
+      font-family: "Consolas", "Monaco", monospace;
+      font-size: 0.8125rem;
+      line-height: 1.7;
+      max-width: 420px;
+      border-left: 4px solid var(--accent);
+    }
+    .code-snippet .comment { color: #64748B; }
+    .code-snippet .tag { color: #7DD3FC; }
+    .code-snippet .attr { color: #A5B4FC; }
+    .code-snippet .val { color: #86EFAC; }
+
+    .hero-profile-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 32px;
+      box-shadow: var(--shadow-hover);
+      border: 1px solid var(--card-border);
+    }
+
+    .hero-avatar {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    .hero-profile-card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 4px;
+    }
+
+    .hero-role {
+      color: var(--text-sub);
+      font-size: 0.9375rem;
+      margin-bottom: 20px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 8px;
+      background: rgba(37, 99, 235, 0.1);
+      color: var(--primary);
+    }
+
+    .cert-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--card-border);
+    }
+
+    .cert-badge {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: #F1F5F9;
+      color: var(--text-sub);
+    }
+
+    /* ===== Problem ===== */
+    .problem-card h3 {
+      font-size: 1.125rem;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .problem-icon {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: rgba(37, 99, 235, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.125rem;
+    }
+
+    .problem-card p { color: var(--text-sub); font-size: 0.9375rem; }
+
+    /* ===== Philosophy ===== */
+    #philosophy {
+      background: var(--white);
+    }
+
+    .philosophy-content {
+      display: grid;
+      gap: 32px;
+    }
+
+    @media (min-width: 768px) {
+      .philosophy-content { grid-template-columns: 1fr 1fr; align-items: start; }
+    }
+
+    .philosophy-text p {
+      color: var(--text-sub);
+      margin-bottom: 16px;
+    }
+
+    .quote-box {
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(124, 58, 237, 0.08));
+      border-left: 4px solid var(--primary);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 28px 32px;
+      font-size: 1.125rem;
+      font-weight: 600;
+      line-height: 1.7;
+      color: var(--text-main);
+    }
+
+    /* ===== Journey ===== */
+    .journey-card {
+      text-align: center;
+      position: relative;
+    }
+
+    .step-number {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: var(--white);
+      font-weight: 800;
+      font-size: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+
+    .journey-icon { font-size: 2rem; margin-bottom: 12px; }
+
+    .journey-card h3 {
+      font-size: 1.125rem;
+      margin-bottom: 10px;
+    }
+
+    .journey-card p {
+      color: var(--text-sub);
+      font-size: 0.9375rem;
+    }
+
+    /* ===== Tools ===== */
+    #tools { background: var(--white); }
+
+    .tool-card h3 {
+      font-size: 1.0625rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .tool-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+
+    .tool-card p { color: var(--text-sub); font-size: 0.9375rem; }
+
+    .tools-note {
+      margin-top: 32px;
+      padding: 16px 20px;
+      background: rgba(34, 197, 94, 0.1);
+      border-radius: 12px;
+      color: #166534;
+      font-weight: 500;
+      text-align: center;
+      font-size: 0.9375rem;
+    }
+
+    /* ===== Profile ===== */
+    .profile-layout {
+      display: grid;
+      gap: 40px;
+      align-items: start;
+    }
+
+    @media (min-width: 768px) {
+      .profile-layout { grid-template-columns: 240px 1fr; }
+    }
+
+    .profile-avatar-large {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #2563EB, #7C3AED);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: var(--white);
+      margin: 0 auto;
+      box-shadow: var(--shadow-hover);
+    }
+
+    .profile-intro h3 {
+      font-size: 1.75rem;
+      margin-bottom: 8px;
+    }
+
+    .profile-title {
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .profile-oneline {
+      color: var(--text-sub);
+      margin-bottom: 20px;
+      font-size: 1.0625rem;
+    }
+
+    .field-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+
+    .field-tag {
+      font-size: 0.8125rem;
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--card-border);
+      background: var(--white);
+      color: var(--text-sub);
+    }
+
+    .experience-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 768px) {
+      .experience-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .exp-card {
+      padding: 20px;
+    }
+
+    .exp-card h4 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .exp-card p {
+      font-size: 0.875rem;
+      color: var(--text-sub);
+    }
+
+    /* ===== Outcome ===== */
+    #outcome { background: var(--white); }
+
+    .outcome-card .outcome-num {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+
+    .outcome-card h3 { font-size: 1.125rem; margin-bottom: 10px; }
+    .outcome-card p { color: var(--text-sub); font-size: 0.9375rem; margin-bottom: 16px; }
+
+    .checklist {
+      margin-top: 40px;
+      padding: 28px;
+      background: var(--background);
+      border-radius: var(--radius);
+      border: 1px solid var(--card-border);
+    }
+
+    .checklist h3 {
+      font-size: 1.0625rem;
+      margin-bottom: 16px;
+    }
+
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 8px 0;
+      color: var(--text-sub);
+      font-size: 0.9375rem;
+    }
+
+    .checklist li::before {
+      content: "✓";
+      color: var(--accent);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* ===== FAQ ===== */
+    .faq-list { max-width: 720px; }
+
+    .faq-item {
+      background: var(--white);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 20px 24px;
+      background: none;
+      border: none;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-main);
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .faq-question:focus-visible {
+      outline: 3px solid var(--primary);
+      outline-offset: -3px;
+    }
+
+    .faq-icon {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(37, 99, 235, 0.1);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      transition: transform 0.3s;
+    }
+
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 200px;
+    }
+
+    .faq-answer-inner {
+      padding: 0 24px 20px;
+      color: var(--text-sub);
+      font-size: 0.9375rem;
+      line-height: 1.7;
+    }
+
+    /* ===== Contact ===== */
+    #contact {
+      background: linear-gradient(160deg, #1E3A8A 0%, #312E81 50%, #4C1D95 100%);
+      color: var(--white);
+      text-align: center;
+    }
+
+    #contact h2 { color: var(--white); margin-bottom: 12px; }
+
+    #contact .section-desc {
+      color: rgba(255, 255, 255, 0.85);
+      margin: 0 auto 32px;
+    }
+
+    .contact-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    #contact .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    #contact .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--white);
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      color: var(--white);
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .contact-link:hover {
+      background: rgba(255, 255, 255, 0.2);
+      text-decoration: none;
+    }
+
+    .copy-hint {
+      font-size: 0.75rem;
+      opacity: 0.7;
+      margin-top: 4px;
+    }
+
+    /* ===== Footer ===== */
+    .site-footer {
+      padding: 24px 0;
+      text-align: center;
+      color: var(--text-sub);
+      font-size: 0.875rem;
+      border-top: 1px solid var(--card-border);
+      background: var(--white);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Header ===== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#hero" class="logo" aria-label="페이지 상단으로">Vibe <span>Coding</span> Guide</a>
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-label="메뉴 열기"
+        aria-expanded="false"
+        aria-controls="main-nav"
+      >
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="main-nav" aria-label="주요 메뉴">
+        <ul>
+          <li><a href="#profile">소개</a></li>
+          <li><a href="#journey">수업 방식</a></li>
+          <li><a href="#tools">도구</a></li>
+          <li><a href="#outcome">결과물</a></li>
+          <li><a href="#contact">문의</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===== Hero Section ===== -->
+    <section id="hero" class="section" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <span class="hero-badge">AI와 함께 만드는 첫 번째 웹페이지</span>
+            <h1 id="hero-title">바이브코딩 입문자의 첫 프로젝트를 함께 만듭니다</h1>
+            <p class="hero-lead">
+              HTML을 처음 만지는 학습자도 ChatGPT, Cursor, Claude Code를 활용해
+              자기소개 웹페이지를 완성할 수 있도록 안내합니다.
+              <strong>동준상</strong> 강사와 함께하는 구름 호남 바이브코딩 실습입니다.
+            </p>
+            <div class="hero-cta">
+              <a href="#journey" class="btn btn-primary">수업 방식 보기</a>
+              <a href="#outcome" class="btn btn-outline">오늘 만들 결과물 보기</a>
+            </div>
+            <div class="code-snippet" role="img" aria-label="HTML 예시 코드 스니펫">
+              <span class="comment">&lt;!-- 오늘의 목표 --&gt;</span><br>
+              <span class="tag">&lt;section</span> <span class="attr">id=</span><span class="val">"my-first-page"</span><span class="tag">&gt;</span><br>
+              &nbsp;&nbsp;<span class="tag">&lt;h1&gt;</span>나의 첫 바이브코딩<span class="tag">&lt;/h1&gt;</span><br>
+              <span class="tag">&lt;/section&gt;</span>
+            </div>
+          </div>
+
+          <aside class="hero-profile-card" aria-label="강사 프로필 요약">
+            <div class="hero-avatar" aria-hidden="true">동</div>
+            <h2>동준상</h2>
+            <p class="hero-role">바이브코딩 입문 강연 · 넥스트플랫폼 대표</p>
+            <div class="tag-list">
+              <span class="tag">AI 도구 활용</span>
+              <span class="tag">웹페이지 실습</span>
+              <span class="tag">프로젝트 완성</span>
+            </div>
+            <div class="cert-badges" aria-label="보유 자격">
+              <span class="cert-badge">AWS SAA</span>
+              <span class="cert-badge">AWS AIF</span>
+              <span class="cert-badge">GCP GenAI Leader</span>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Problem Section ===== -->
+    <section id="problem" class="section" aria-labelledby="problem-title">
+      <div class="container">
+        <span class="section-label">입문자의 고민</span>
+        <h2 id="problem-title">처음 시작할 때 가장 어려운 건 코드가 아니라 방향입니다</h2>
+        <p class="section-desc">
+          AI 기술 이야기는 많지만, 오늘 당장 무엇을 만들지 막막한 분들을 위해
+          먼저 공감하고, 함께 해결하는 방법을 안내합니다.
+        </p>
+        <div class="grid-3">
+          <article class="card problem-card">
+            <h3>
+              <span class="problem-icon" aria-hidden="true">💡</span>
+              무엇을 만들어야 할지 모르겠어요
+            </h3>
+            <p>아이디어를 웹페이지 구조(헤더, 소개, 연락처)로 바꾸는 법부터 함께 정리합니다.</p>
+          </article>
+          <article class="card problem-card">
+            <h3>
+              <span class="problem-icon" aria-hidden="true">📋</span>
+              AI가 준 코드를 어디에 붙여야 할지 모르겠어요
+            </h3>
+            <p>HTML, CSS, JavaScript가 한 파일 안에서 어떤 역할을 하는지 눈으로 확인합니다.</p>
+          </article>
+          <article class="card problem-card">
+            <h3>
+              <span class="problem-icon" aria-hidden="true">🔧</span>
+              오류가 나면 바로 멈춰요
+            </h3>
+            <p>오류 메시지를 AI에게 다시 설명하고, 수정 요청을 반복하는 실전 흐름을 배웁니다.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Philosophy Section ===== -->
+    <section id="philosophy" class="section" aria-labelledby="philosophy-title">
+      <div class="container">
+        <span class="section-label">수업 철학</span>
+        <h2 id="philosophy-title">AI는 대신 만들어주는 마법이 아니라, 함께 완성하는 도구입니다</h2>
+        <div class="philosophy-content">
+          <div class="philosophy-text">
+            <p>
+              바이브코딩은 “AI에게 다 맡기는 것”이 아닙니다.
+              좋은 질문, 작은 수정, 반복 테스트를 통해 결과물을 완성하는 방식입니다.
+            </p>
+            <p>
+              동준상 강사는 10년 이상 AI·클라우드·오픈소스 분야에서 강연과 실무를 해오며
+              <strong>기술의 화려함보다 실제 문제 해결</strong>의 가치를 강조해 왔습니다.
+              입문자는 모든 코드를 외우기보다 구조를 이해하고 수정하는 경험을 먼저 쌓습니다.
+            </p>
+            <p>
+              AI는 목적이 아니라, 여러분의 아이디어를 웹페이지로 바꾸는 도구입니다.
+            </p>
+          </div>
+          <blockquote class="quote-box">
+            “오늘의 목표는 완벽한 개발자가 되는 것이 아니라,
+            AI와 함께 작동하는 첫 웹페이지를 완성하는 것입니다.”
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Learning Journey Section ===== -->
+    <section id="journey" class="section" aria-labelledby="journey-title">
+      <div class="container">
+        <span class="section-label">수업 흐름</span>
+        <h2 id="journey-title">이해하기 → 따라 만들기 → 내 것으로 바꾸기</h2>
+        <p class="section-desc">
+          복잡한 개발 과정을 세 단계로 나누어, 오늘 안에 하나의 웹페이지를 끝까지 완성합니다.
+        </p>
+        <div class="grid-3 journey-grid">
+          <article class="card journey-card">
+            <div class="step-number" aria-hidden="true">1</div>
+            <div class="journey-icon" aria-hidden="true">👀</div>
+            <h3>이해하기</h3>
+            <p>HTML 문서 구조와 웹페이지 구성 요소(제목, 섹션, 버튼)를 눈으로 확인합니다.</p>
+          </article>
+          <article class="card journey-card">
+            <div class="step-number" aria-hidden="true">2</div>
+            <div class="journey-icon" aria-hidden="true">🛠️</div>
+            <h3>따라 만들기</h3>
+            <p>AI 프롬프트를 활용해 섹션별 코드를 생성하고, 하나의 index.html에 붙여봅니다.</p>
+          </article>
+          <article class="card journey-card">
+            <div class="step-number" aria-hidden="true">3</div>
+            <div class="journey-icon" aria-hidden="true">✨</div>
+            <h3>내 것으로 바꾸기</h3>
+            <p>문구, 색상, 프로필, 버튼을 자기 스타일로 수정해 나만의 페이지로 확장합니다.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Class Tools Section ===== -->
+    <section id="tools" class="section" aria-labelledby="tools-title">
+      <div class="container">
+        <span class="section-label">실습 도구</span>
+        <h2 id="tools-title">오늘 실습에서 사용할 도구</h2>
+        <p class="section-desc">
+          코딩을 처음 시작하는 학습자도 익숙해질 수 있도록, 각 도구의 역할을 명확히 구분해 사용합니다.
+        </p>
+        <div class="grid-3 tools-grid">
+          <article class="card tool-card">
+            <h3>
+              <span class="tool-icon" style="background:#10A37F20" aria-hidden="true">💬</span>
+              ChatGPT
+            </h3>
+            <p>아이디어 정리, 문구 작성, 오류 설명 요청에 사용합니다.</p>
+          </article>
+          <article class="card tool-card">
+            <h3>
+              <span class="tool-icon" style="background:#2563EB20" aria-hidden="true">⌨️</span>
+              Cursor
+            </h3>
+            <p>HTML 파일 작성·수정·미리보기 흐름을 한곳에서 진행합니다.</p>
+          </article>
+          <article class="card tool-card">
+            <h3>
+              <span class="tool-icon" style="background:#7C3AED20" aria-hidden="true">🤖</span>
+              Claude Code
+            </h3>
+            <p>프로젝트 구조 점검, 코드 개선, 리팩토링 실습에 활용합니다.</p>
+          </article>
+          <article class="card tool-card">
+            <h3>
+              <span class="tool-icon" style="background:#0F172A15" aria-hidden="true">🌐</span>
+              Vercel / GitHub Pages
+            </h3>
+            <p>완성한 웹페이지를 온라인으로 공유하고, 포트폴리오 링크로 활용합니다.</p>
+          </article>
+        </div>
+        <p class="tools-note" role="note">
+          도구를 많이 쓰는 것보다, 하나의 결과물을 끝까지 완성하는 것이 더 중요합니다.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== Instructor Profile Section ===== -->
+    <section id="profile" class="section" aria-labelledby="profile-title">
+      <div class="container">
+        <span class="section-label">강사 소개</span>
+        <h2 id="profile-title">동준상 — 바이브코딩 입문자의 첫 프로젝트 파트너</h2>
+        <div class="profile-layout">
+          <div class="profile-visual">
+            <div class="profile-avatar-large" role="img" aria-label="동준상 강사 이니셜 아바타">동</div>
+          </div>
+          <div class="profile-intro">
+            <h3>동준상</h3>
+            <p class="profile-title">넥스트플랫폼 대표 · 바이브코딩·AI 실습 강연</p>
+            <p class="profile-oneline">
+              AI 도구를 활용해 비전공자도 직접 결과물을 만들 수 있도록 돕는 실습형 강연자.
+              10년차 기술 강연자, 20권 이상 기술서 저자, 소프트웨어 엔지니어로
+              구름 AX 바이브코딩 등 입문·실무 과정을 진행하고 있습니다.
+            </p>
+            <div class="field-tags" aria-label="전문 분야">
+              <span class="field-tag">생성형 AI 활용</span>
+              <span class="field-tag">웹페이지 제작</span>
+              <span class="field-tag">프롬프트 설계</span>
+              <span class="field-tag">프로젝트 코칭</span>
+              <span class="field-tag">바이브코딩</span>
+              <span class="field-tag">클라우드·AX</span>
+            </div>
+            <div class="experience-grid">
+              <article class="card exp-card">
+                <h4>AI·바이브코딩 강연</h4>
+                <p>구름 AX 시리즈, 바이브코딩 마스터 등 입문·실무 교육 다수 진행</p>
+              </article>
+              <article class="card exp-card">
+                <h4>기술서 저술</h4>
+                <p>「바이브코딩 항해일지」 등 20권 이상 소프트웨어·AI·클라우드 도서 집필</p>
+              </article>
+              <article class="card exp-card">
+                <h4>HTML/CSS 웹 실습</h4>
+                <p>싱글 HTML 파일로 자기소개·서비스 소개 페이지 제작 코칭</p>
+              </article>
+              <article class="card exp-card">
+                <h4>입문자 프로젝트 멘토링</h4>
+                <p>K-Digital, 해커톤 등에서 초심자 프로젝트 완성 지원 경험</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Project Outcome Section ===== -->
+    <section id="outcome" class="section" aria-labelledby="outcome-title">
+      <div class="container">
+        <span class="section-label">오늘의 결과물</span>
+        <h2 id="outcome-title">오늘 완성할 수 있는 결과물</h2>
+        <p class="section-desc">
+          바이브코딩은 코드를 외우는 수업이 아니라, AI와 함께 내 아이디어를 실제 웹페이지로 바꾸는 실습입니다.
+        </p>
+        <div class="grid-3 outcome-grid">
+          <article class="card outcome-card">
+            <p class="outcome-num">Result 01</p>
+            <h3>자기소개 페이지</h3>
+            <p>이름, 관심 분야, 목표, 연락처를 담은 개인 페이지를 완성합니다.</p>
+          </article>
+          <article class="card outcome-card">
+            <p class="outcome-num">Result 02</p>
+            <h3>프로젝트 소개 페이지</h3>
+            <p>문제 정의, 해결 아이디어, 사용 기술, 기대 효과를 소개하는 페이지입니다.</p>
+          </article>
+          <article class="card outcome-card">
+            <p class="outcome-num">Result 03</p>
+            <h3>강사·서비스 소개 페이지</h3>
+            <p>지금 보고 계신 이 페이지처럼, 전문성·수업 방식·문의 버튼을 담은 랜딩 페이지입니다.</p>
+          </article>
+        </div>
+        <div class="checklist" aria-labelledby="checklist-title">
+          <h3 id="checklist-title">오늘의 완성 기준</h3>
+          <ul>
+            <li>하나의 <code>index.html</code> 파일로 브라우저에서 바로 실행된다</li>
+            <li>모바일과 PC에서 모두 읽기 편한 반응형 레이아웃이다</li>
+            <li>최소 5개 이상의 섹션을 포함한다</li>
+            <li>버튼 클릭 시 페이지 내부 섹션으로 부드럽게 이동한다</li>
+            <li>본인의 문구와 색상으로 수정되어 있다</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ Section ===== -->
+    <section id="faq" class="section" aria-labelledby="faq-title">
+      <div class="container">
+        <span class="section-label">자주 묻는 질문</span>
+        <h2 id="faq-title">처음이어도 괜찮습니다</h2>
+        <p class="section-desc">수업 전에 많이 받는 질문을 정리했습니다. 궁금한 점은 수업 중에도 편하게 물어보세요.</p>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              코딩을 몰라도 따라갈 수 있나요?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">
+                네. 오늘은 코드를 외우는 것보다 구조를 보고 수정하는 경험에 집중합니다.
+                AI 도구와 함께 한 섹션씩 완성해 나가면 됩니다.
+              </div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              HTML 파일 하나만으로도 웹페이지가 되나요?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">
+                네. HTML 안에 CSS와 JavaScript를 함께 넣으면 싱글 파일 웹페이지를 만들 수 있습니다.
+                오늘 실습은 바로 그 방식으로 진행합니다.
+              </div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              AI가 만든 코드가 틀리면 어떻게 하나요?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">
+                오류 메시지와 현재 코드를 다시 AI에게 보여주고, 수정 요청을 반복하는 방식으로 해결합니다.
+                이 과정 자체가 바이브코딩의 핵심 실습입니다.
+              </div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              오늘 만든 페이지를 나중에 포트폴리오로 바꿀 수 있나요?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">
+                네. 문구, 색상, 섹션을 바꾸면 개인 포트폴리오나 프로젝트 소개 페이지로 확장할 수 있습니다.
+                Vercel이나 GitHub Pages로 배포해 링크를 공유할 수도 있습니다.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Contact / CTA Section ===== -->
+    <section id="contact" class="section" aria-labelledby="contact-title">
+      <div class="container">
+        <h2 id="contact-title">AI와 함께 첫 웹페이지를 완성해볼 준비가 되셨나요?</h2>
+        <p class="section-desc">
+          동준상 강사와 함께 오늘의 실습을 시작하고, 나만의 소개 페이지를 완성해 보세요.
+        </p>
+        <div class="contact-cta">
+          <a href="#hero" class="btn btn-primary">프로젝트 시작하기</a>
+          <a href="mailto:naebon@naver.com" class="btn btn-outline">강사에게 문의하기</a>
+        </div>
+        <div class="contact-links">
+          <a href="mailto:naebon@naver.com" class="contact-link" id="email-link">
+            ✉️ naebon@naver.com
+          </a>
+          <button type="button" class="contact-link" id="copy-email" style="border:none;cursor:pointer;font-family:inherit;">
+            📋 이메일 복사
+          </button>
+          <a href="https://nextplatform.net/" class="contact-link" target="_blank" rel="noopener noreferrer">
+            🌐 넥스트플랫폼 블로그
+          </a>
+          <a href="https://nextplatform.net/nextplatform-junsang-dong-profile-your-growth-partner-in-ai/" class="contact-link" target="_blank" rel="noopener noreferrer">
+            📄 강사 상세 프로필
+          </a>
+        </div>
+        <p class="copy-hint" id="copy-status" aria-live="polite"></p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 동준상 · 구름 호남 바이브코딩 실습 · Vibe Coding Instructor Profile</p>
+    </div>
+  </footer>
+
+  <script>
+    /* ===== Mobile Navigation ===== */
+    (function () {
+      const toggle = document.querySelector(".nav-toggle");
+      const nav = document.querySelector(".site-nav");
+      const links = nav.querySelectorAll("a");
+
+      toggle.addEventListener("click", function () {
+        const expanded = toggle.getAttribute("aria-expanded") === "true";
+        toggle.setAttribute("aria-expanded", String(!expanded));
+        toggle.setAttribute("aria-label", expanded ? "메뉴 열기" : "메뉴 닫기");
+        nav.classList.toggle("open");
+      });
+
+      links.forEach(function (link) {
+        link.addEventListener("click", function () {
+          nav.classList.remove("open");
+          toggle.setAttribute("aria-expanded", "false");
+          toggle.setAttribute("aria-label", "메뉴 열기");
+        });
+      });
+    })();
+
+    /* ===== FAQ Accordion ===== */
+    (function () {
+      const items = document.querySelectorAll(".faq-item");
+
+      items.forEach(function (item) {
+        const btn = item.querySelector(".faq-question");
+        btn.addEventListener("click", function () {
+          const isOpen = item.classList.contains("open");
+
+          items.forEach(function (other) {
+            other.classList.remove("open");
+            other.querySelector(".faq-question").setAttribute("aria-expanded", "false");
+          });
+
+          if (!isOpen) {
+            item.classList.add("open");
+            btn.setAttribute("aria-expanded", "true");
+          }
+        });
+      });
+    })();
+
+    /* ===== Email Copy ===== */
+    (function () {
+      const copyBtn = document.getElementById("copy-email");
+      const status = document.getElementById("copy-status");
+      const email = "naebon@naver.com";
+
+      copyBtn.addEventListener("click", function () {
+        navigator.clipboard.writeText(email).then(function () {
+          status.textContent = "이메일이 클립보드에 복사되었습니다.";
+          setTimeout(function () { status.textContent = ""; }, 3000);
+        }).catch(function () {
+          status.textContent = "복사에 실패했습니다. " + email + " 을 직접 복사해 주세요.";
+        });
+      });
+    })();
+
+    /* ===== Smooth scroll offset for sticky header ===== */
+    (function () {
+      document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+        anchor.addEventListener("click", function (e) {
+          const id = anchor.getAttribute("href");
+          if (id === "#") return;
+          const target = document.querySelector(id);
+          if (!target) return;
+          e.preventDefault();
+          const headerHeight = 64;
+          const top = target.getBoundingClientRect().top + window.scrollY - headerHeight;
+          window.scrollTo({ top: top, behavior: "smooth" });
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
