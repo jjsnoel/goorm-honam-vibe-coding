@@ -9,3 +9,4 @@ __pycache__/
 .env
 .env.*
 *.code-workspace
+day2-poket_wisdom/
