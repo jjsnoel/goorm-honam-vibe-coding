@@ -8,8 +8,9 @@
 |------|-----------|------|
 | **Day 1** | `day1-intro-website/` | 강사 소개 랜딩 + 바이브코딩 항해일지 북 랜딩 |
 | **Day 2** | [**goorm-honam-pocket-wisdom**](https://github.com/jjsnoel/goorm-honam-pocket-wisdom) | Pocket Wisdom 명언수첩 웹앱 (별도 저장소) |
+| **Day 5** | [**day5-auto-data-srk**](https://github.com/jjsnoel/day5-auto-data-srk) | Data Explorer AI — CSV/Excel 자동 EDA (별도 저장소) |
 
-> Day 2 소스는 이 레포에 포함하지 않습니다. 로컬에서 작업 시 `day2-poket_wisdom/` 폴더는 `.gitignore` 처리되어 있습니다.
+> Day 2·Day 5 소스는 이 레포에 포함하지 않습니다. 로컬 작업 폴더는 `.gitignore` 처리되어 있습니다.
 
 ## 폴더 구조
 
@@ -47,3 +48,4 @@ python -m http.server 5151
 
 - **2026-05-26** — Day 1: 강사 소개 랜딩, 북 랜딩 페이지
 - **2026-05-28** — Day 2: Pocket Wisdom (전용 저장소)
+- **2026-06-01** — Day 5: Data Explorer AI (전용 저장소)
