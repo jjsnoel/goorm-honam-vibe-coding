@@ -10,3 +10,5 @@ __pycache__/
 .env.*
 *.code-workspace
 day2-poket_wisdom/
+day3-react-vite-vibe-coding/
+day5-auto-data-srk/
